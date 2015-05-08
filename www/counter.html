@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+        
+    <link href="css/ionicons.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.shop.js"></script>
+      
+  </head>
+  <body ng-app="starter">
+
+    <ion-pane>
+      <ion-header-bar class="bar-positive">
+        <h1 class="title">Calorie counter</h1>
+      </ion-header-bar>
+      <ion-content>
+<div id="site">
+	<header id="masthead">
+		<h1> <span class="tagline">"You are what you eat."</h1>
+		<img src="images/healthyBody.jpg" alt="" />
+	</header>
+	<div id="content">
+		<h1>Your Calorie counter</h1>
+		<form id="calorie-counter" action="counter.html" method="get">
+			<table class="calorie-counter">
+			  <thead>
+				<tr>
+					<th scope="col">Item</th>
+					<th scope="col">Qty</th>
+					<th scope="col">kcals</th>
+				</tr>
+			  </thead>
+			  <tbody>
+			  
+			  </tbody>
+			</table>
+			<p id="sub-total">
+				<strong>Sub Total</strong>: <span id="stotal"></span>
+			</p>
+			<ul id="calorie-counter-actions">
+				<li>
+					<input type="submit" name="update" id="update-counter" class="button" value="Update counter" />
+				</li>
+				<li>
+					<input type="submit" name="delete" id="empty-counter" class="button" value="Empty counter" />
+				</li>
+				<li>
+					<a href="products.html" class="button"> Back to calorie list</a>
+				</li>
+				<li>
+					<a href="checkout.html" class="button">Finish</a>
+				</li>
+			</ul>
+		</form>
+	</div>
+	
+	
+
+</div>
+
+      </ion-content>
+      <ion-footer-bar align-title="left" class="bar-positive">
+          <div class="buttons">
+            <a href="index.html" class="button"><i class="icon ion-home"></i> Home</a>
+          </div>
+          <h1 class="title">&copy; Health Eating</h1>
+      </ion-footer-bar>
+    </ion-pane>
+  </body>
+</html>

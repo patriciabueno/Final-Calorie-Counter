@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Calorie counter</title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+    
+    <link href="css/ionicons.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+      
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.shop.js"></script>
+      
+  </head>
+  <body ng-app="starter">
+
+    <ion-pane>
+      <ion-header-bar class="bar-positive">
+        <h1 class="title">Calorie Counter</h1>
+      </ion-header-bar>
+      <ion-content>
+    <div id="site">
+     <div id="content">
+        <div id="products"> 
+            
+          <div class="list counter">
+
+              <div class="item item-avatar">
+                <h1>Milk</h1>
+              </div>
+              
+              <div class="item item-image">
+                <div class="product-image">
+                    <img src="images/milk.jpg" alt="" />
+                </div>
+                <div class="product-description" data-name="Milk" kcals="150">
+                    <h3 class="product-name">Full-fat milk Kcals/cup</h3>
+                    <p class="calorie-amount"> 150 </p> <!-- Calories per fixed amount -->
+                    <form class="add-to-counter" action="counter.html" method="get">
+                        <div>
+                            <label for="qty-1">Cups:</label>
+                            <input type="text" name="qty-1" id="qty-1" class="qty" value="1" />
+                        </div>
+                        <p><input type="submit" value="Add to counter" class="button button-assertive" /></p>
+                    </form>
+                 </div><!-- end div class="product-description" -->
+              </div>
+              
+          </div>
+          
+          <div class="list counter">
+
+              <div class="item item-avatar">
+                <h1>Bread</h1>
+              </div>
+              
+              <div class="item item-image">
+                <div class="product-image">
+                    <img src="images/Bread.jpg" alt="" />
+                </div>
+                <div class="product-description" data-name="Bread" kcals="8">
+                    <h3 class="product-name">Bread, Cereal/ 100 g</h3>
+                    <p class="calorie-amount"> 17</p>
+                    <form class="add-to-counter" action="counter.html" method="get">
+                        <div>
+                            <label for="qty-1">Qty</label>
+                            <input type="text" name="qty-1" id="qty-1" class="qty" value="1" />
+                        </div>
+                        <p><input type="submit" value="Add to counter" class="button button-assertive" /></p>
+                    </form>
+                 </div><!-- end div class="product-description" -->
+              </div>
+              
+          </div>
+            
+            <div class="list counter">
+
+              <div class="item item-avatar">
+                <h1>Lasagna with meat sauce</h1>
+              </div>
+              
+              <div class="item item-image">
+                <div class="product-image">
+                    <img src="images/lasagne.jpg" alt="" />
+                </div>
+                <div class="product-description" data-name="Lasagna with meat sauce" kcals="11">
+                    <h3 class="product-name">Lasagna with meat sauce/ half a cup</h3>
+                    <p class="calorie-amount">154</p>
+                    <form class="add-to-counter" action="counter.html" method="get">
+                        <div>
+                            <label for="qty-1">Qty</label>
+                            <input type="text" name="qty-1" id="qty-1" class="qty" value="1" />
+                        </div>
+                        <p><input type="submit" value="Add to counter" class="button button-assertive" /></p>
+                    </form>
+                 </div><!-- end div class="product-description" -->
+              </div>
+              
+          </div>
+            <div class="list counter">
+
+              <div class="item item-avatar">
+                <h1>White rice, cooked/long grain</h1>
+              </div>
+              
+              <div class="item item-image">
+                <div class="product-image">
+                    <img src="images/rice.jpg" alt="" />
+                </div>
+                <div class="product-description" data-name="White rice, cooked/long grain" kcals="11">
+                    <h3 class="product-name">White rice, cooked/ half a cup</h3>
+                    <p class="calorie-amount">131</p>
+                    <form class="add-to-counter" action="counter.html" method="get">
+                        <div>
+                            <label for="qty-1">Qty</label>
+                            <input type="text" name="qty-1" id="qty-1" class="qty" value="1" />
+                        </div>
+                        <p><input type="submit" value="Add to counter" class="button button-assertive" /></p>
+                    </form>
+                 </div><!-- end div class="product-description" -->
+         </div>
+        </div>
+		<div class="list counter">
+
+              <div class="item item-avatar">
+                <h1>Tuna, canned in oil</h1>
+              </div>
+              
+              <div class="item item-image">
+                <div class="product-image">
+                    <img src="images/Tuna.jpg" alt="" />
+                </div>
+                <div class="product-description" data-name="Tuna, canned in oil" kcals="11">
+                    <h3 class="product-name">Tuna, canned in oil/ 85 g</h3>
+                    <p class="calorie-amount">154</p>
+                    <form class="add-to-counter" action="counter.html" method="get">
+                        <div>
+                            <label for="qty-1">Qty</label>
+                            <input type="text" name="qty-1" id="qty-1" class="qty" value="1" />
+                        </div>
+                        <p><input type="submit" value="Add to counter" class="button button-assertive" /></p>
+                    </form>
+                 </div><!-- end div class="product-description" -->
+				<div class="list counter">
+
+              <div class="item item-avatar">
+                <h1>Chocolate ice cream</h1>
+              </div>
+              
+              <div class="item item-image">
+                <div class="product-image">
+                    <img src="images/IceCream.jpg" alt="" />
+                </div>
+                <div class="product-description" data-name="Chocolate ice cream" kcals="11">
+                    <h3 class="product-name">Chocolate ice cream/ 1 ball</h3>
+                    <p class="calorie-amount">280</p>
+                    <form class="add-to-counter" action="counter.html" method="get">
+                        <div>
+                            <label for="qty-1">Qty</label>
+                            <input type="text" name="qty-1" id="qty-1" class="qty" value="1" />
+                        </div>
+                        <p><input type="submit" value="Add to counter" class="button button-assertive" /></p>
+                    </form>
+                </div><!-- end div class="product-description" --> 
+				 
+			  </div>  
+				</div> 	 
+			</div> 	
+		</div>   
+	</div> 
+      </ion-content>
+      <ion-footer-bar align-title="left" class="bar-positive">
+          <div class="buttons">
+            <a href="index.html" class="button"><i class="icon ion-home"></i> Home</a>
+          </div>
+          <h1 class="title">&copy; Health Eating</h1>
+      </ion-footer-bar>
+    </ion-pane>
+  </body>
+</html>
