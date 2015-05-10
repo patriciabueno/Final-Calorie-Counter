@@ -11,7 +11,6 @@
 		
 			this.counterPrefix = "winery-"; // Prefix string to be prepended to the counter's name in the session storage
 			this.counterName = this.counterPrefix + "counter"; // counter name in the session storage
-			this.shippingRates = this.counterPrefix + "shipping-rates"; // Shipping rates key in the session storage
 			this.total = this.counterPrefix + "total"; // Total key in the session storage
 			this.storage = sessionStorage; // shortcut to the sessionStorage object
 			
@@ -20,20 +19,11 @@
 			this.$formcounter = this.$element.find( "#calorie-counter" ); // calorie counter form
 			this.$checkoutcounter = this.$element.find( "#checkout-counter" ); // Checkout form counter
 			this.$checkoutOrderForm = this.$element.find( "#checkout-order-form" ); // Checkout user details form
-			this.$shipping = this.$element.find( "#sshipping" ); // Element that displays the shipping rates
 			this.$subTotal = this.$element.find( "#stotal" ); // Element that displays the subtotal charges
 			this.$caloriecounterActions = this.$element.find( "#calorie-counter-actions" ); // counter actions links
 			this.$updatecounterBtn = this.$caloriecounterActions.find( "#update-counter" ); // Update counter button
 			this.$emptycounterBtn = this.$caloriecounterActions.find( "#empty-counter" ); // Empty counter button
 			this.$userDetails = this.$element.find( "#user-details-content" ); // Element that displays the user information
-			this.$paypalForm = this.$element.find( "#paypal-form" ); // PayPal form
-			
-			
-			this.currency = "&euro;"; // HTML entity of the currency to be displayed in the layout
-			this.currencyString = "€"; // Currency symbol as textual string
-			this.paypalCurrency = "EUR"; // PayPal's currency code
-			this.paypalBusinessEmail = "eamon-facilitator@eamonwalsh.it"; // Your Business PayPal's account email address
-			this.paypalURL = "https://www.sandbox.paypal.com/cgi-bin/webscr"; // The URL of the PayPal's form
 			
 			// Object containing patterns for form validation
 			this.requiredFields = {
@@ -55,9 +45,7 @@
 			this.emptycounter();
 			this.updatecounter();
 			this.displaycounter();
-			this.displayUserDetails();
-			this.populatePayPalForm();
-			
+					
 			
 		},
 		
@@ -76,121 +64,14 @@
 				this.storage.setItem( this.total, "0" );
 			}
 		},
-		
-		// Appends the required hidden values to the PayPal's form before submitting
-		
-		populatePayPalForm: function() {
-			var self = this;
-			if( self.$paypalForm.length ) {
-				var $form = self.$paypalForm;
-				var counter = self._toJSONObject( self.storage.getItem( self.counterName ) );
-				var shipping = self.storage.getItem( self.shippingRates );
-				var numShipping = self._convertString( shipping );
-				var counterItems = counter.items; 
-				var singShipping = Math.floor( numShipping / counterItems.length );
 				
-				$form.attr( "action", self.paypalURL );
-				$form.find( "input[name='business']" ).val( self.paypalBusinessEmail );
-				$form.find( "input[name='currency_code']" ).val( self.paypalCurrency );
-				
-				for( var i = 0; i < counterItems.length; ++i ) {
-					var counterItem = counterItems[i];
-					var n = i + 1;
-					var name = counterItem.product;
-					var kcals = counterItem.kcals;
-					var qty = counterItem.qty;
-					
-					$( "<div/>" ).html( "<input type='hidden' name='quantity_" + n + "' value='" + qty + "'/>" ).
-					insertBefore( "#paypal-btn" );
-					$( "<div/>" ).html( "<input type='hidden' name='item_name_" + n + "' value='" + name + "'/>" ).
-					insertBefore( "#paypal-btn" );
-					$( "<div/>" ).html( "<input type='hidden' name='item_number_" + n + "' value='SKU " + name + "'/>" ).
-					insertBefore( "#paypal-btn" );
-					$( "<div/>" ).html( "<input type='hidden' name='amount_" + n + "' value='" + self._formatNumber( kcals, 2 ) + "'/>" ).
-					insertBefore( "#paypal-btn" );
-					$( "<div/>" ).html( "<input type='hidden' name='shipping_" + n + "' value='" + self._formatNumber( singShipping, 2 ) + "'/>" ).
-					insertBefore( "#paypal-btn" );
-					
-				}
-				
-				
-				
-			}
-		},
-		
-		// Displays the user's information
-		
-		displayUserDetails: function() {
-			if( this.$userDetails.length ) {
-				if( this.storage.getItem( "shipping-name" ) == null ) {
-					var name = this.storage.getItem( "billing-name" );
-					var email = this.storage.getItem( "billing-email" );
-					var city = this.storage.getItem( "billing-city" );
-					var address = this.storage.getItem( "billing-address" );
-					var zip = this.storage.getItem( "billing-zip" );
-					var country = this.storage.getItem( "billing-country" );
-					
-					var html = "<div class='detail'>";
-						html += "<h2>Billing and Shipping</h2>";
-						html += "<ul>";
-						html += "<li>" + name + "</li>";
-						html += "<li>" + email + "</li>";
-						html += "<li>" + city + "</li>";
-						html += "<li>" + address + "</li>";
-						html += "<li>" + zip + "</li>";
-						html += "<li>" + country + "</li>";
-						html += "</ul></div>";
-						
-					this.$userDetails[0].innerHTML = html;
-				} else {
-					var name = this.storage.getItem( "billing-name" );
-					var email = this.storage.getItem( "billing-email" );
-					var city = this.storage.getItem( "billing-city" );
-					var address = this.storage.getItem( "billing-address" );
-					var zip = this.storage.getItem( "billing-zip" );
-					var country = this.storage.getItem( "billing-country" );
-					
-					var sName = this.storage.getItem( "shipping-name" );
-					var sEmail = this.storage.getItem( "shipping-email" );
-					var sCity = this.storage.getItem( "shipping-city" );
-					var sAddress = this.storage.getItem( "shipping-address" );
-					var sZip = this.storage.getItem( "shipping-zip" );
-					var sCountry = this.storage.getItem( "shipping-country" );
-					
-					var html = "<div class='detail'>";
-						html += "<h2>Billing</h2>";
-						html += "<ul>";
-						html += "<li>" + name + "</li>";
-						html += "<li>" + email + "</li>";
-						html += "<li>" + city + "</li>";
-						html += "<li>" + address + "</li>";
-						html += "<li>" + zip + "</li>";
-						html += "<li>" + country + "</li>";
-						html += "</ul></div>";
-						
-						html += "<div class='detail right'>";
-						html += "<h2>Shipping</h2>";
-						html += "<ul>";
-						html += "<li>" + sName + "</li>";
-						html += "<li>" + sEmail + "</li>";
-						html += "<li>" + sCity + "</li>";
-						html += "<li>" + sAddress + "</li>";
-						html += "<li>" + sZip + "</li>";
-						html += "<li>" + sCountry + "</li>";
-						html += "</ul></div>";
-						
-					this.$userDetails[0].innerHTML = html;	
-				
-				}
-			}
-		},
 		
 		// Displays the calorie counter
 		
 		displaycounter: function() {
 			if( this.$formcounter.length ) {
 				var counter = this._toJSONObject( this.storage.getItem( this.counterName ) );
-				var items = counter.items;
+				var items = counter.items;// item name returns kcals
 				var $tablecounter = this.$formcounter.find( ".calorie-counter" );
 				var $tablecounterBody = $tablecounter.find( "tbody" );
 				
@@ -198,7 +79,7 @@
 				for( var i = 0; i < items.length; ++i ) {
 					var item = items[i];
 					var product = item.product;
-					var kcals = this.currency + " " + item.kcals;
+					var kcals =  " " + item.kcals;/* this.currency + */
 					var qty = item.qty;
 					var html = "<tr><td class='pname'>" + product + "</td>" + "<td class='pqty'><input type='text' value='" + qty + "' class='qty'/></td>" + "<td class='pkcals'>" + kcals + "</td></tr>";
 					
@@ -226,8 +107,8 @@
 				var counterShipping = this.storage.getItem( this.shippingRates );
 				var subTot = this._convertString( counterTotal ) + this._convertString( counterShipping );
 				
-				this.$subTotal[0].innerHTML = this.currency + " " + this._convertNumber( subTot );
-				this.$shipping[0].innerHTML = this.currency + " " + counterShipping;
+				this.$subTotal[0].innerHTML =  " " + this._convertNumber( subTot );/* this.currency + */
+				//this.$shipping[0].innerHTML = this.currency + " " + counterShipping;
 			
 			}
 		},
@@ -252,7 +133,7 @@
 			self.$updatecounterBtn.on( "click", function() {
 				var $rows = self.$formcounter.find( "tbody tr" );
 				var counter = self.storage.getItem( self.counterName );
-				var shippingRates = self.storage.getItem( self.shippingRates );
+			//	var shippingRates = self.storage.getItem( self.shippingRates );
 				var total = self.storage.getItem( self.total );
 				
 				var updatedTotal = 0;
@@ -308,11 +189,7 @@
 						kcals: kcals,
 						qty: qty
 					});
-					var shipping = self._convertString( self.storage.getItem( self.shippingRates ) );
-					var shippingRates = self._calculateShipping( qty );
-					var totalShipping = shipping + shippingRates;
 					
-					self.storage.setItem( self.shippingRates, totalShipping );
 				});
 			});
 		},
@@ -452,32 +329,7 @@
 			this.storage.setItem( this.counterName, this._toJSONString( counterCopy ) );
 		},
 		
-		/* Custom shipping rates calculation based on the total quantity of items in the counter
-		 * @param qty Number the total quantity of items
-		 * @returns shipping Number the shipping rates
-		 */
-		
-		_calculateShipping: function( qty ) {
-			var shipping = 0;
-			if( qty >= 6 ) {
-				shipping = 10;
-			}
-			if( qty >= 12 && qty <= 30 ) {
-				shipping = 20;	
-			}
-			
-			if( qty >= 30 && qty <= 60 ) {
-				shipping = 30;	
-			}
-			
-			if( qty > 60 ) {
-				shipping = 0;
-			}
-			
-			return shipping;
-		
-		},
-		
+				
 		/* Validates the checkout form
 		 * @param form Object the jQuery element of the checkout form
 		 * @returns valid Boolean true for success, false for failure
@@ -528,7 +380,8 @@
 		 * @returns void
 		 */
 		
-		
+		// As my app was made using this file as a frame, I could not delete some items that
+		// are not being used, as it will compromise my own functions
 		_saveFormData: function( form ) {
 			var self = this;
 			var $visibleSet = form.find( "fieldset:visible" );
