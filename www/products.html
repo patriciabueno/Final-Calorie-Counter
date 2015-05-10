@@ -8,10 +8,7 @@
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
-    
+      
     <link href="css/ionicons.css" rel="stylesheet">
 
     <!-- ionic/angularjs js -->
@@ -27,6 +24,7 @@
     <script type="text/javascript" src="js/jquery.shop.js"></script>
       
   </head>
+  <!------------------------- Contents starts------------------------------------------->
   <body ng-app="starter">
 
     <ion-pane>
@@ -37,17 +35,17 @@
     <div id="site">
      <div id="content">
         <div id="products"> 
-            
+          	<!----------------------div class="item" starts------- MILK ----------------------------->  
           <div class="list counter">
-
-              <div class="item item-avatar">
-                <h1>Milk</h1>
+			 <div class="item item-avatar">
+			     <h1>Milk</h1>
               </div>
               
               <div class="item item-image">
                 <div class="product-image">
                     <img src="images/milk.jpg" alt="" />
                 </div>
+				
                 <div class="product-description" data-name="Milk" data-kcals="150">
                     <h3 class="product-name">Full-fat milk Kcals/cup</h3>
                     <p class="calorie-amount"> 150 </p> <!-- Calories per fixed amount -->
@@ -58,14 +56,13 @@
                         </div>
                         <p><input type="submit" value="Add to counter" class="button button-assertive" /></p>
                     </form>
-                 </div><!-- end div class="product-description" -->
+                 </div><!---------------div class="product-description" ends------- MILK --------------->
               </div>
               
           </div>
-          
+          <!----------------------div class="item" starts------- BREAD----------------------------------->
           <div class="list counter">
-
-              <div class="item item-avatar">
+			<div class="item item-avatar">
                 <h1>Bread</h1>
               </div>
               
@@ -83,14 +80,13 @@
                         </div>
                         <p><input type="submit" value="Add to counter" class="button button-assertive" /></p>
                     </form>
-                 </div><!-- end div class="product-description" -->
+                 </div><!-- div class="product-description" ends------- BREAD ------------------------------->
               </div>
               
           </div>
-            
+            <!----------------------div class="item" starts------- LASAGNA----------------------------------->
             <div class="list counter">
-
-              <div class="item item-avatar">
+			   <div class="item item-avatar">
                 <h1>Lasagna with meat sauce</h1>
               </div>
               
@@ -108,12 +104,12 @@
                         </div>
                         <p><input type="submit" value="Add to counter" class="button button-assertive" /></p>
                     </form>
-                 </div><!-- end div class="product-description" -->
+                 </div><!-- div class="product-description" ends------- LASAGNA ------------------------------>
               </div>
               
           </div>
+		  <!----------------------div class="item" starts------- WHITE RICE----------------------------------->
             <div class="list counter">
-
               <div class="item item-avatar">
                 <h1>White rice, cooked/long grain</h1>
               </div>
@@ -132,12 +128,12 @@
                         </div>
                         <p><input type="submit" value="Add to counter" class="button button-assertive" /></p>
                     </form>
-                 </div><!-- end div class="product-description" -->
+                 </div><!-- div class="product-description" ends------- WHITE RICE ------------------------------>
          </div>
         </div>
+		<!----------------------div class="item" starts------- TUNA----------------------------------------------->
 		<div class="list counter">
-
-              <div class="item item-avatar">
+          <div class="item item-avatar">
                 <h1>Tuna, canned in oil</h1>
               </div>
               
@@ -155,9 +151,11 @@
                         </div>
                         <p><input type="submit" value="Add to counter" class="button button-assertive" /></p>
                     </form>
-                 </div><!-- end div class="product-description" -->
+                 </div><!-- div class="product-description" ends------- TUNA ----------------------------------->
+		  </div>
+        </div>
+		<!----------------------div class="item" starts------- ICE CREAM----------------------------------------->
 				<div class="list counter">
-
               <div class="item item-avatar">
                 <h1>Chocolate ice cream</h1>
               </div>
@@ -176,15 +174,15 @@
                         </div>
                         <p><input type="submit" value="Add to counter" class="button button-assertive" /></p>
                     </form>
-                </div><!-- end div class="product-description" --> 
+                </div><!-- div class="product-description" ends------- ICE CREAM-------------------------------->
 				 
 			  </div>  
 				</div> 	 
 			</div> 	
 		</div>   
 	</div> 
-      </ion-content>
-      <ion-footer-bar align-title="left" class="bar-positive">
+      </ion-content> <!-- Contents ends -->
+      <ion-footer-bar align-title="left" class="bar-positive"><!-- Footer starts -->
           <div class="buttons">
             <a href="index.html" class="button"><i class="icon ion-home"></i> Home</a>
           </div>
