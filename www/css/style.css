@@ -42,11 +42,7 @@
 	letter-spacing: 0.1em;
 }
 
-<<<<<<< HEAD
 .calorie-amount {
-=======
-.product-price {
->>>>>>> 93541aff5f94a04699156ae48ca9498aeebabb62
 	width: 4em;
 	height: 4em;
 	font-size: 1.2em;
@@ -58,15 +54,9 @@
 	border-radius: 50%;
 }
 
-<<<<<<< HEAD
 form.add-to-counter div,
 form.add-to-counter p,
 form.add-to-counter input {
-=======
-form.add-to-cart div,
-form.add-to-cart p,
-form.add-to-cart input {
->>>>>>> 93541aff5f94a04699156ae48ca9498aeebabb62
 	text-align: center;
 }
 
@@ -111,19 +101,11 @@ body#checkout-page #site-info {
 	position: static;
 }
 
-<<<<<<< HEAD
 #calorie-counter {
 	margin: 1.5em 0;
 }
 
 .calorie-counter {
-=======
-#shopping-cart {
-	margin: 1.5em 0;
-}
-
-.shopping-cart {
->>>>>>> 93541aff5f94a04699156ae48ca9498aeebabb62
 	border: 1px solid #ddd;
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -131,11 +113,7 @@ body#checkout-page #site-info {
 	table-layout: fixed;
 }
 
-<<<<<<< HEAD
 .calorie-counter th {
-=======
-.shopping-cart th {
->>>>>>> 93541aff5f94a04699156ae48ca9498aeebabb62
 	font-size: 1.3em;
 	padding: 0.3em;
 	width: 33.3%;
@@ -143,40 +121,24 @@ body#checkout-page #site-info {
 	text-transform: uppercase;
 }
 
-<<<<<<< HEAD
 .calorie-counter td {
-=======
-.shopping-cart td {
->>>>>>> 93541aff5f94a04699156ae48ca9498aeebabb62
 	padding: 0.3em;
 	width: 33.3%;
 	border: 1px solid #ddd;
 }
 
-<<<<<<< HEAD
 .calorie-counter tr:nth-child(even) {
 	background: #fafafa;
 }
 
 #calorie-counter-actions {
-=======
-.shopping-cart tr:nth-child(even) {
-	background: #fafafa;
-}
-
-#shopping-cart-actions {
->>>>>>> 93541aff5f94a04699156ae48ca9498aeebabb62
 	margin: 1.5em 0;
 	padding: 0;
 	list-style: none;
 	text-align: center;
 }
 
-<<<<<<< HEAD
 #calorie-counter-actions li {
-=======
-#shopping-cart-actions li {
->>>>>>> 93541aff5f94a04699156ae48ca9498aeebabb62
 	display: inline-block;
 	margin-right: 1em;
 }
