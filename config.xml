@@ -13,6 +13,7 @@
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="BackupWebStorage" value="none"/>
+<<<<<<< HEAD
   <preference name="SplashScreen" value="screen"/>
   <preference name="SplashScreenDelay" value="3000"/>
   <feature name="StatusBar">
@@ -38,4 +39,9 @@
     <splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
     <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
+=======
+  <feature name="StatusBar">
+    <param name="ios-package" value="CDVStatusBar" onload="true"/>
+  </feature>
+>>>>>>> 93541aff5f94a04699156ae48ca9498aeebabb62
 </widget>
